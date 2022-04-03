@@ -7,7 +7,11 @@ body{
     align-items: stretch;
     width: 100vw;
     height: 100vh;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-sans;
+}
+abbr[title="required"]{
+    text-decoration: none;
+    color: red;
 }
 /***********left side of site*********/
 .leftside{
@@ -61,16 +65,22 @@ body{
     justify-content: center;
     width: 70%;
     height: 100%;
+    background-color: rgba(167, 164, 164, 0.2);
 }
 .top{
     font-weight: 550;
     font-size: 20px;
     margin: 3vh;
 }
+/****** middle-form *******/
 .middle{
     padding: 30px;
-    box-shadow: 3px 3px 2px rgb(0, 0, 255, 0.2);
+    box-shadow: 3px 3px 2px rgb(128, 128, 128, 0.2);
     margin: 0;
+    background-color: white;
+}
+.legend{
+    padding: 20px 0;
 }
 .inputs{
     display: flex;
@@ -89,9 +99,9 @@ body{
     font-weight:400;
 }
 .inputs input{
-    height: 20px;
-    padding: 1px 5px;
-    font-size: 12px;
+    height: 30px;
+    padding: 1px 1px 1px 16px;
+    font-size: 14px;
 
     border: 1px solid #E5E7EB;
     border-radius: 3px;
@@ -99,31 +109,46 @@ body{
 .inputs input:focus{
     outline: none;
     border: 1px solid blue;
-    box-shadow: 3px 3px 2px rgb(0, 0, 255, 0.2);
+    box-shadow: 2px 2px 2px rgb(0, 0, 255, 0.2);
 }
-/***** password ********/
-input[type="password"]+span{
-    position: relative;
+.inputs input:valid{
+    background: url(images/check.svg);
+    background-repeat: no-repeat;
+    background-position: 2px;
+    background-size: 12px;
+    border: 1px solid #008000;
 }
-.password input:invalid, .confirmpassword input:invalid{
-    outline: none;
-    border: 1px solid red;
-    box-shadow: none;
+.inputs input:invalid:not(:focus):not(:placeholder-shown) {
+    background: url(images/xmark.svg);
+    background-repeat: no-repeat;
+    background-position: 2px;
+    background-size: 12px;
+    border: 1px solid #ff0000;
 }
-input[type="password"]:invalid+span::after {
-    content: "* Passwords do not match";
+.inputs input:invalid:focus:not(:placeholder-shown) {
+    background: url(images/xmark.svg);
+    background-repeat: no-repeat;
+    background-position: 2px;
+    background-size: 12px;
+    border: 1px solid #ff0000;
+}
+.inputs input:invalid:focus:not(:placeholder-shown) ~ .error {
+    max-height: 50px;
+}
+.inputs .error{
+    max-height: 0;
+    transition: 0.28s;
+    overflow: hidden;
     color: red;
+    font-style: italic;
     font-size: 10px;
-    position: absolute;
-    bottom: -13px;
-    left: 1px;
 }
 /*********** submit button *******/
 .bottom{
     display: flex;
     flex-direction: column;
     max-width: 300px;
-    font-size: small;
+    font-size: 14px;
     margin: 30px 0px 0px 30px;
 }
 .bottom button{
@@ -133,10 +158,11 @@ input[type="password"]:invalid+span::after {
     font-weight: 800;
     border-radius: 5px;
     width: 150px;
-    height: 35px;
+    height: 40px;
     margin: 0px 0px 20px 0px;
 }
 .bottom button:hover{
+    background-color: rgb(42, 47, 66);
     box-shadow: 3px 3px 2px rgb(0, 0, 255, 0.2);
 }
 .bottom span{

@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js" defer></script>
     <title>Sign-up Form</title>
 </head>
 <body>
@@ -15,37 +15,57 @@
         <div class="credit">Photo by <a href="https://unsplash.com/@von_co">Ivana Cajina</a> on <a href="https://unsplash.com/photos/asuyh-_ZX54">Unsplash</a></div>
     </div>
     <div class="rigthside">
-        <div class="top">This form is just cosmetic. Even if you submit nothing will happen, so don't submit.
-            But you can try submitting for fun.
+        <div class="top">Form.
+            
         </div>
-        <form action="" method="get">
+        <form action="" method="post">
             <div class="middle">
-                <div class="legend">Let's do this</div>
+                <div class="legend">Fill in the form
+                </div>
                 <div class="inputs">
                     <div class="firstname">
-                        <label for="first-name">FIRST NAME</label>
-                        <input type="text" name="firstName" id="first-name">
+                        <label for="first-name">FIRST NAME <abbr title="required">*</abbr></label>
+                        <input type="text" name="firstName" id="first-name" 
+                                pattern="^[A-Za-z]{2,15}$"
+                                placeholder="Reda.."
+                                required>
+                        <span class="error">First name should have atleast 2 letters and no more than 15 letters</span>
                     </div>
                     <div class="lastname">
-                        <label for="last-name">LAST NAME</label>
-                        <input type="text" name="lastName" id="last-name">
+                        <label for="last-name">LAST NAME <abbr title="required">*</abbr></label>
+                        <input type="text" name="lastName" id="last-name" 
+                                pattern="^[A-Za-z]{2,15}$"
+                                placeholder="Ahmed.."
+                                required>
+                        <span class="error">Last name should have atleast 2 letters and no more than 15 letters</span>
                     </div>
                     <div class="email">
-                        <label for="email-input">EMAIL</label>
-                        <input type="email" name="emailInput" id="email-input">
+                        <label for="email-input">EMAIL <abbr title="required">*</abbr></label>
+                        <input type="email" name="emailInput" id="email-input" placeholder="example@sample.com" required>
+                        <span class="error">Enter a valid email.</span>
                     </div>
                     <div class="phone">
-                        <label for="phone-number">PHONE NUMBER</label>
-                        <input type="tel" name="phoneNumber" id="phone-number">
+                        <label for="phone-number">PHONE NUMBER <abbr title="required">*</abbr></label>
+                        <input type="tel" name="phoneNumber" id="phone-number" 
+                                pattern="^(?:0|\(?\+212\)?\s?|00212\s?)[1-79](?:[\.\-\s]?\d\d){4}$"
+                                placeholder="(+212) 123456789"
+                                required>
+                        <span class="error">Enter a valid phone number.</span>
                     </div>
                     <div class="password">
-                        <label for="password-input">PASSWORD</label>
-                        <input type="password" name="passwordInput" id="password-input" required>
-                        <span></span>
+                        <label for="password-input">PASSWORD <abbr title="required">*</abbr></label>
+                        <input type="password" name="passwordInput" id="password-input" 
+                                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" 
+                                placeholder=" "
+                                required>
+                        <span class="error">Your password must be at least 8 characters as well as contain at least one uppercase, one lowercase, and one number.</span>
                     </div>
                     <div class="confirmpassword">
-                        <label for="password-confirm">CONFIRM PASSWORD</label>
-                        <input type="password" name="passwordConfirm" id="password-confirm" required>
+                        <label for="password-confirm">CONFIRM PASSWORD <abbr title="required">*</abbr></label>
+                        <input type="password" name="passwordConfirm" id="password-confirm" 
+                                placeholder=" "
+                                required>
+                        <span class="error"></span>
                     </div>
                 </div>
             </div>
